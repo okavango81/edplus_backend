@@ -9,7 +9,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-@Component
+//@Component
 public class CustomHeaderFilter extends OncePerRequestFilter
     {
         private static final String SECRET_HEADER = "X-SECRET-KEY";
@@ -22,6 +22,7 @@ public class CustomHeaderFilter extends OncePerRequestFilter
                 if (!SECRET_VALUE.equals(headerValue)) {
                     response.sendError(HttpServletResponse.SC_FORBIDDEN, "Access denied");
                     return;
-                } filterChain.doFilter(request, response);
+                }
+                filterChain.doFilter(request, response);
             }
     }
